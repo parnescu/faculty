@@ -1,0 +1,33 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Testing
+
+		link(rel="stylesheet", href="css/main.css")
+		script(src="angular/angular.js")
+		script(src="angular-route/angular-route.js")
+		script(src="js/app/f1000.js")
+		script(src="js/main.js")
+
+	body
+		#page(ng-controller="MainCtrl")
+			header
+				h1 angularjs
+			section
+				article(ng-show="currentArticle")
+					h2 {{currentArticle.title}}
+					p.body {{currentArticle.artAbstract}}
+					p.publishDate Published on: {{currentArticle.published | date:'dd MMMM yyyy'}}
+
+					.related
+						h2 Related articles
+						ul
+							li(ng-repeat="id in currentArticle.relatedArticlesIds")
+								h3(ng-repeat="article in getArticleById(id)")
+									a {{article}}
+				aside
+					ul
+						li(ng-repeat='article in articles', ng-class='{selected: article == currentArticle}')
+							a(href="/articles/{{article.id}}", ng-click="showArticle($event, article)"){{article.title}}
+					

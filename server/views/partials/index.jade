@@ -1,0 +1,3 @@
+ul
+	li(ng-repeat='article in articles', ng-class='{selected: article == currentArticle}')
+		a(href="/articles/{{article.id}}"){{article.title}}
