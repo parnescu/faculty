@@ -55,7 +55,7 @@ angular.module('F1000', ['ngRoute'])
 
 		$scope.showArticle = function(e, article){
 			e.preventDefault();
-			trace(article)
+			//$scope.articles.unshift(article)
 			$scope.currentArticle = article;
 		}
 		$scope.getArticleById = function(id){

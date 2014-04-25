@@ -24,8 +24,7 @@ html
 						h2 Related articles
 						ul
 							li(ng-repeat="id in currentArticle.relatedArticlesIds")
-								h3(ng-repeat="article in getArticleById(id)")
-									a {{article}}
+								h3 {{id}}
 				aside
 					ul
 						li(ng-repeat='article in articles', ng-class='{selected: article == currentArticle}')
