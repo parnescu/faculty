@@ -1,18 +1,52 @@
-body, html, h1,h2,h3, p, div, ul, li { margin:0; padding:0;}
+/* css reset */
+body, html, h1, h2, h3, p, div, ul, li { margin:0; padding:0;}
+body, html, #page { width:100%; height:100%; font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", Arial, _sans;}
 ul, li { list-style-type:none;}
-body, html, #page { width:100%; height:100%;}
-
-.selected { background:#f90;}
-
-#page { padding:1em; box-sizing:border-box; -webkit-box-sizing:border-box;}
-section { position:relative;}
-section > * { box-sizing:border-box; -webkit-box-sizing:border-box; width: 100%; clear:both; float:none; /*text-align: justify;*/}
-section aside { position:absolute; top:0; right:0; background:#ccc; text-align: inherit; }
+a { text-decoration: none; color:#2277C5;}
 
 
+/* mobile first approach, make everything stretch to entire page*/
+header { display: block; overflow: hidden; padding:0 1em 2em 1em;}
+h1 { font-size:1.8em; float:left;}
+h2 { font-size:1.2em; margin-bottom:.5em;}
+nav { float:right;}
+nav a { color:#fff; padding:.5em 1em; border-radius:.5em; background: red; display: inline-block; margin-right:.5em; 
+	background: linear-gradient(to bottom, #2277C5, #093F8F);
+	background: -moz-linear-gradient(to bottom, #2277C5, #093F8F);
+	text-shadow: 0 .1em .1em #000;
+}
+nav a:active { background: linear-gradient(to top, #2277C5, #093F8F); background: -moz-linear-gradient(to top, #2277C5, #093F8F);}
+
+
+#page { padding:1em; box-sizing:border-box; -moz-box-sizing:border-box;}
+section { position:relative; display:block; height:90%;}
+section > * { padding:1em;box-sizing:border-box; -moz-box-sizing:border-box; width: 100%; clear:both; float:none; text-align: justify;}
+section aside { position:relative; top:0; right:0; background:#ccc; text-align: inherit; display: block; overflow:scroll; overflow-x:hidden;}
+section article.details { width:100%; height:auto;}
+section article.details ul,
+section article.details ul li { list-style-type: disc; margin-left:1em;}
+section article.details .description { margin-bottom:1em;}
+section article.details p { margin-bottom:.5em;}
+
+
+.related { padding-top:1em; border-top:.1em solid; margin-top:1em;}
+.related h2 { margin-bottom:0em;}
+.selected { background:rgba(20,20,20,.5);}
+.selected a { color:#eee;}
+.selected span { color:#ccc;}
+.publishDate { color:#666; font-size:.9em;}
+.list li { border-bottom:.1em solid rgba(0,0,0,9); padding:.5em;}
+.list li:last-of-type { border-bottom:none;}
+.list li > * { font-size:.8em;}
+
+
+/* media queries for customisation */
 @media (min-width: 640px) {
 	section > * { clear:none;}
-	section article { width:70%; float:left; padding-right:1em;}
-	section aside { width:30%; float:right; position:relative;}
-
+	
+	section article { width:70%; float:left; padding-right:2em;}
+	section article .publishDate { margin-top:.5em;}
+	
+	section aside { width:30%; float:right; position:relative; height:90%;}
+	section aside .list { height: 80%;}
 }

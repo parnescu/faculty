@@ -2,31 +2,31 @@ doctype html
 html
 	head
 		meta(charset="utf-8")
-		title Testing
+		title F1000 Test with AngularJS
 
 		link(rel="stylesheet", href="css/main.css")
 		script(src="angular/angular.js")
 		script(src="angular-route/angular-route.js")
+		//-script(src="angular-ui-router/release/angular-ui-router.js")
+	
+
+		//- application files (should be optimized into one file - grunt task w/ requirejs)
 		script(src="js/app/f1000.js")
-		script(src="js/main.js")
+		script(src="js/app/controllers/main.js")
+		script(src="js/app/controllers/details.js")
+		script(src="js/app/services/loader.js")
+
+		//- application bootstrap
+		script(src="js/bootstrap.js")
 
 	body
 		#page(ng-controller="MainCtrl")
 			header
-				h1 angularjs
-			section
-				article(ng-show="currentArticle")
-					h2 {{currentArticle.title}}
-					p.body {{currentArticle.artAbstract}}
-					p.publishDate Published on: {{currentArticle.published | date:'dd MMMM yyyy'}}
-
-					.related
-						h2 Related articles
-						ul
-							li(ng-repeat="id in currentArticle.relatedArticlesIds")
-								h3 {{id}}
-				aside
+				h1 F1000 Tech Test
+				nav
 					ul
-						li(ng-repeat='article in articles', ng-class='{selected: article == currentArticle}')
-							a(href="/articles/{{article.id}}", ng-click="showArticle($event, article)"){{article.title}}
-					
+						li
+							a(href="#/" title="Homepage") Home
+							a(href="#/articles" title="Articles") Articles
+			
+			section(ng-view ui-view)

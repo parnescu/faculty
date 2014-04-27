@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, '../bower_components')));
 app.use(app.router);
 
 app.get('/', function(req, res){ res.render('layout')});
+app.get('/tests', function(req, res){ res.render('playground')});
 app.get('/partials/:partialName', function(req, res){ res.render('partials/'+req.params.partialName); });
 
 //app.get('*', function(req, res){ res.redirect('/')});

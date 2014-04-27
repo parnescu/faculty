@@ -1,0 +1,21 @@
+article
+	p.details(ng-hide="currentArticle") Select article you want to read
+	.body(ng-show="currentArticle")
+		h2 {{currentArticle.title}}
+		p.body {{currentArticle.artAbstract}}
+		p.publishDate Published on: {{currentArticle.published | date:'dd MMMM yyyy'}}
+
+		.related(ng-show="currentRelated")
+			h2 Related articles
+			ul.list
+				li(ng-repeat="item in currentRelated", ng-class="{selected: currentArticle==item}")
+					h3 
+						a(ng-href="#/articles/{{item.id}}", title="{{item.title}}", ng-click="showArticle(item, $event)") {{item.title}}
+					span.publishDate Published on: {{item.published | date:'dd MMMM yyyy'}}
+aside
+	h2 Articles
+	ul.list
+		li(ng-repeat="item in articles", ng-class="{selected: currentArticle==item}")
+			h3
+				a(ng-href="#/articles/{{item.id}}", title="{{item.title}}", ng-click="showArticle(item, $event)") {{item.title}}
+			span.publishDate Published on: {{item.published | date:'dd MMMM yyyy'}}
